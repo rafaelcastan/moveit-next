@@ -1,4 +1,5 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import { GetServerSideProps } from 'next'
 
 import { CompletedChalenges } from '../components/CompletedChallenges';
 import { Countdown } from '../components/Countdown';
@@ -7,28 +8,56 @@ import { Profile } from '../components/Profile';
 import { ChallengeBox } from '../components/ChallengeBox';
 
 
-
 import Styles from '../styles/pages/Home.module.css';
+import { CountdownProvider } from '../Contexts/CountdownContext';
+import { ChallengesProvider } from '../Contexts/ChallengeContext';
+
+interface HomeProps {
+  level: number;
+  currentExperience: number;
+  challengesCompleted: number;
+}
 
 
-export default function Home() {
+export default function Home(props) {
   return (
-    <div className={Styles.container}>
-      <Head>
-        <title>Início | move.it</title>
-      </Head>
-      <ExperienceBar />
+    <ChallengesProvider
+      level={props.level}
+      currentExperience={props.currentExperience}
+      challengesCompleted={props.challengesCompleted}
+    >
+      <div className={Styles.container}>
+        <Head>
+          <title>Início | move.it</title>
+        </Head>
+        <ExperienceBar />
 
-      <section>
-        <div className="">
-          <Profile />
-          <CompletedChalenges />
-          <Countdown />
-        </div>
-        <div>
-          <ChallengeBox />
-        </div>
-      </section>
-    </div>
+        <CountdownProvider>
+          <section>
+            <div>
+              <Profile />
+              <CompletedChalenges />
+              <Countdown />
+            </div>
+            <div>
+              <ChallengeBox />
+            </div>
+          </section>
+        </CountdownProvider>
+
+      </div>
+    </ChallengesProvider>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { level, currentExperience, challengesCompleted } = ctx.req.cookies;
+
+  return {
+    props: {
+      level: Number(level),
+      currentExperience: Number(currentExperience),
+      challengesCompleted: Number(challengesCompleted)
+    }
+  }
 }

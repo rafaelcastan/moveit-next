@@ -27,3 +27,9 @@ span.currentExperience {
     top: 12px;
     transform: translateX(-50%);
 }
+
+@keyframes levelUpAnimation {
+    to {
+        width: 100%;
+    }
+}
