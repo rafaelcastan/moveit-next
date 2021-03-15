@@ -1,4 +1,14 @@
-​	Move.it is a project created by Rocketseat, using React and Next, initially to be a platform that combines the technique of pomodoro, which consists of alternating cycles of focus and rest, with exercises for well-being for those who spend many hours in front of a computer, which can be harmful to health when you do no exercise or take periods of rest!
+Move.it is a project created by Rocketseat, using React and Next, initially to be a platform that combines the technique of pomodoro, which consists of alternating cycles of focus and rest, with exercises for well-being for those who spend many hours in front of a computer, which can be harmful to health when you do no exercise or take periods of rest! 
+
+
+
+You can test the app at: 
+
+https://moveit-r90tyc1vz-rafaelcastan.vercel.app
+
+
+
+![image-20210315152910159](C:\Users\rafae\AppData\Roaming\Typora\typora-user-images\image-20210315152910159.png)
 
 
 
@@ -45,3 +55,4 @@
    ```
 
    
+
