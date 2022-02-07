@@ -27,7 +27,7 @@ https://moveit-r90tyc1vz-rafaelcastan.vercel.app
    
 
    ```
-   https://github.com/rafaelcastan/moveit-next.git
+   git clone https://github.com/rafaelcastan/moveit-next.git
    ```
 
    
